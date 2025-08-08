@@ -1,0 +1,20 @@
+{
+    "name": "cicdContentImport",
+    "title": "CICD Content Import",
+    "subTitle": "To allow users to select a source control repository, review its content, and import the latest content or settings into FortiSOAR—with control over what gets applied via editable export templates.",
+    "version": "1.0.0",
+    "published_date": 1754031032,
+    "releaseNotes": "unavailable",
+    "metadata": {
+        "help_online": "",
+        "description": "To allow users to select a source control repository, review its content, and import the latest content or settings into FortiSOAR—with control over what gets applied via editable export templates.",
+        "pages": [
+            "View Panel"
+        ],
+        "certified": "Yes",
+        "publisher": "Fortinet",
+        "compatibility": [
+            "7.5.0"
+        ]
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "cicdContentImport": {
+        "EDIT_VIEW_SELECT_DESCRIPTION": "드롭다운에서 소스 제어 저장소를 선택하여 최신 콘텐츠 또는 설정을 FortiSOAR에 가져와 적용합니다.",
+        "EDIT_VIEW_DEFAULT_SELECT_ITEM": "저장소 선택...",
+        "EDIT_VIEW_SAVE_BTN_LABEL": "저장",
+        "EDIT_VIEW_CLOSE_BTN_LABEL": "닫기",
+        "VIEW_DEFAULT_SELECT_ITEM": "저장소 선택...",
+        "VIEW_APPLY_BTN_LABEL": "최신 콘텐츠 검토 및 적용"
+    }
+}

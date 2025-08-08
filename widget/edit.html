@@ -1,0 +1,39 @@
+<!-- Copyright start
+    MIT License
+    Copyright (c) 2025 Fortinet Inc
+Copyright end -->
+<form data-ng-submit="save()" class="noMargin" name="editImportWizardForm" data-ng-class="{'state-wait': processing }"
+    novalidate>
+    <div class="modal-header">
+        <h3 class="modal-title col-md-9">CICD Content Import Edit View</h3>
+        <button type="button" class="close" data-ng-click="cancel()" data-dismiss="modal" aria-label="Close"
+            id="close-edit-widget-form-btn">
+            <div aria-hidden="true" class="version-button">+</div>
+        </button>
+    </div>
+     <div class="modal-body">
+        <div class="form-group margin-bottom-0">
+                <p class="font-Size-13 muted">
+                    <span data-ng-bind-html="'{{viewWidgetVars.EDIT_VIEW_SELECT_DESCRIPTION}}'| domPurifySanitize"></span>
+                </p>
+                <div class="cs-select">
+                    <ui-select name="select_threat_detection_tools" id="select_threat_detection_tools"
+                        data-ng-model="config.selectedImportTemplates" data-ng-required="true" multiple
+                        class="custom-multi-select" append-to-body="false">
+                        <ui-select-match placeholder="{{viewWidgetVars.EDIT_VIEW_DEFAULT_SELECT_ITEM}}">{{$item}}
+                        </ui-select-match>
+                        <ui-select-choices repeat="option in templateNames | filter: $select.search | orderBy: '$value'"
+                            refresh-delay="200" ng-show="($select.items.length > 0) ||">
+                            <div ng-bind-html="option | highlight: $select.search"></div>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button id="edit-widget-save" type="submit" class="btn btn-sm btn-primary" data-ng-disabled="(config.selectedImportTemplates && config.selectedImportTemplates.length === 0) || (config.selectedImportTemplates === undefined)"><i
+                class="icon icon-check margin-right-sm"></i>{{viewWidgetVars.EDIT_VIEW_SAVE_BTN_LABEL}}</button>
+        <button id="edit-widget-cancel" type="button" class="btn btn-sm btn-default" data-ng-click="cancel()"><i
+                class="icon icon-close margin-right-sm"></i>{{viewWidgetVars.EDIT_VIEW_CLOSE_BTN_LABEL}}</button>
+    </div>
+</form>

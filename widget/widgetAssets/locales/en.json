@@ -1,0 +1,10 @@
+{
+    "cicdContentImport": {
+        "EDIT_VIEW_SELECT_DESCRIPTION": "Select a source control repository from the dropdown to pull and apply the latest content or settings to FortiSOAR",
+        "EDIT_VIEW_DEFAULT_SELECT_ITEM": "Select Repositories ...",
+        "EDIT_VIEW_SAVE_BTN_LABEL": "Save",
+        "EDIT_VIEW_CLOSE_BTN_LABEL": "Close",
+        "VIEW_DEFAULT_SELECT_ITEM": "Select a Repository ...",
+        "VIEW_APPLY_BTN_LABEL": "Review & Apply Latest Content"
+    }
+}
