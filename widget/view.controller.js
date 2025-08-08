@@ -17,6 +17,7 @@ Copyright end */
     $scope.isTemplateSelected = false;
     $scope.parent_wf_id = '';
     var subscription;
+    const playbookIRI = '24963415-4057-4fd5-bbe5-bf7d6bfa059d';
 
     $scope.$on('websocket:reconnect', function () {
       initWebsocket();
@@ -86,10 +87,9 @@ Copyright end */
           "record": (FormEntityService.get()).originalData
         }
       };
-      var queryUrl = API.MANUAL_TRIGGER + '24963415-4057-4fd5-bbe5-bf7d6bfa059d';
+      var queryUrl = API.MANUAL_TRIGGER + playbookIRI;
       $http.post(queryUrl, queryPayload).then(function (response) {
         $scope.pullLatestContentPlaybookTaskID = response.data.task_id;
-        console.log(response);
       });
     }
 
