@@ -1,0 +1,10 @@
+{
+    "cicdContentImport": {
+        "EDIT_VIEW_SELECT_DESCRIPTION": "从下拉菜单中选择一个源代码控制仓库，以拉取并应用最新的内容或设置到 FortiSOAR。",
+        "EDIT_VIEW_DEFAULT_SELECT_ITEM": "选择仓库...",
+        "EDIT_VIEW_SAVE_BTN_LABEL": "保存",
+        "EDIT_VIEW_CLOSE_BTN_LABEL": "关闭",
+        "VIEW_DEFAULT_SELECT_ITEM": "选择一个仓库...",
+        "VIEW_APPLY_BTN_LABEL": "查看并应用最新内容"
+    }
+}

@@ -1,0 +1,25 @@
+<!-- Copyright start
+    MIT License
+    Copyright (c) 2025 Fortinet Inc
+Copyright end -->
+<div class="widget widget-container chart">
+    <div class="display-flex-space-between margin-chart">
+        <div class="padding-right-0 padding-left-0 widget-dashboard-title-width"
+            data-ng-class="(page === 'dashboard' || page === 'reporting') ? 'widget-dashboard-title-width' : 'widget-title-width'">
+        </div>
+    </div>
+    <div class="form-group margin-bottom-0">
+        <div class="margin-left-md">
+            <div class="cs-select">
+                <select class="form-control" name="selected-template" id="selected-template" style="max-width: 50%;"
+                        data-ng-options="template for template in config.selectedImportTemplates" ng-model="selectedRepository" ng-change="changeRepository()" required>
+                        <option value="">{{viewWidgetVars.VIEW_DEFAULT_SELECT_ITEM}}</option>
+                    </select>
+            </div>
+            <div class="margin-top-md margin-bottom-xlg">
+                <button type="button" class="btn btn-sm btn-primary" data-ng-click="triggerPlaybook()" data-ng-disabled="(isPlaybookExecuted || isTemplateSelected===false)"
+                    id="submit-export-template-btn"><i class="fa" data-ng-class="isPlaybookExecuted ? 'fa-spin fa-spinner' : 'icon icon-publish'"></i>{{viewWidgetVars.VIEW_APPLY_BTN_LABEL}}</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+{
+    "cicdContentImport": {
+        "EDIT_VIEW_SELECT_DESCRIPTION": "ドロップダウンからソース管理リポジトリを選択して、最新のコンテンツまたは設定をFortiSOARにプルして適用します。",
+        "EDIT_VIEW_DEFAULT_SELECT_ITEM": "リポジトリを選択...",
+        "EDIT_VIEW_SAVE_BTN_LABEL": "保存",
+        "EDIT_VIEW_CLOSE_BTN_LABEL": "閉じる",
+        "VIEW_DEFAULT_SELECT_ITEM": "リポジトリを選択...",
+        "VIEW_APPLY_BTN_LABEL": "最新のコンテンツを確認して適用"
+    }
+}
