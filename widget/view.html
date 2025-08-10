@@ -11,14 +11,14 @@ Copyright end -->
     <div class="form-group margin-bottom-0">
         <div class="margin-left-md">
             <div class="cs-select">
-                <select class="form-control" name="selected-template" id="selected-template" style="max-width: 50%;"
+                <select class="form-control" name="selected-template" id="selected-template" style="max-width: 27%;"
                         data-ng-options="template for template in config.selectedImportTemplates" ng-model="selectedRepository" ng-change="changeRepository()" required>
                         <option value="">{{viewWidgetVars.VIEW_DEFAULT_SELECT_ITEM}}</option>
                     </select>
             </div>
             <div class="margin-top-md margin-bottom-xlg">
                 <button type="button" class="btn btn-sm btn-primary" data-ng-click="triggerPlaybook()" data-ng-disabled="(isPlaybookExecuted || isTemplateSelected===false)"
-                    id="submit-export-template-btn"><i class="fa" data-ng-class="isPlaybookExecuted ? 'fa-spin fa-spinner' : 'icon icon-publish'"></i>{{viewWidgetVars.VIEW_APPLY_BTN_LABEL}}</button>
+                    id="submit-export-template-btn"><i class="fa" data-ng-class="isPlaybookExecuted ? 'fa-spin fa-spinner' : 'icon icon-publish'"></i></span>&nbsp;&nbsp;</span>{{viewWidgetVars.VIEW_APPLY_BTN_LABEL}}</button>
             </div>
         </div>
     </div>
