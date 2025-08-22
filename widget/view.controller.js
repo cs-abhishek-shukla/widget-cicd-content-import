@@ -62,24 +62,32 @@ Copyright end */
             _openWizard(response.data.result.data.uuid);
           }
           else {
-            toaster.warning({
-              body: "The \"Pull Latest Container\" playbook is currently in an Active/Awaiting state. Please wait for the previous operation to complete."
-            });
+            if (!$scope.isToaster) {
+              toaster.warning({
+                body: "Reset the \"Apply Latest Content\" task and try again."
+              });
+              $scope.isToaster = true;
+              websocketService.unsubscribe(subscription);
+            }
           }
         } else if (response.data.status === 'finished with error' || response.data.status === 'failed') {
           $scope.selectedRepository = null;
           $scope.isPlaybookExecuted = false;
           $scope.isTemplateSelected = false;
-          // _responsePopup(response.data.result);
-          toaster.error({
-            body: "The \"Pull Latest Container\" playbook has failed. Check the playbook logs for details."
-          });
+          if (!$scope.isToaster) {
+            toaster.warning({
+              body: "The \"Review and Apply Latest Content\" playbook has failed. Check the playbook logs for details."
+            });
+            $scope.isToaster = true;
+            websocketService.unsubscribe(subscription);
+          }
         }
       });
     }
 
     function triggerPlaybook() {
       $scope.isPlaybookExecuted = true;
+      $scope.isToaster = false;
       initWebsocket();
       var queryPayload = {
         "request": {
