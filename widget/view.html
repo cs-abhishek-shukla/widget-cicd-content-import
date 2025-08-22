@@ -12,13 +12,16 @@ Copyright end -->
         <div class="margin-left-md">
             <div class="cs-select">
                 <select class="form-control" name="selected-template" id="selected-template" style="max-width: 27%;"
-                        data-ng-options="template for template in config.selectedImportTemplates" ng-model="selectedRepository" ng-change="changeRepository()" required>
-                        <option value="">{{viewWidgetVars.VIEW_DEFAULT_SELECT_ITEM}}</option>
-                    </select>
+                    data-ng-options="template for template in config.selectedImportTemplates"
+                    ng-model="selectedRepository" ng-change="changeRepository()" required>
+                    <option value="">{{viewWidgetVars.VIEW_DEFAULT_SELECT_ITEM}}</option>
+                </select>
             </div>
             <div class="margin-top-md margin-bottom-xlg">
-                <button type="button" class="btn btn-sm btn-primary" data-ng-click="triggerPlaybook()" data-ng-disabled="(isPlaybookExecuted || isTemplateSelected===false)"
-                    id="submit-export-template-btn"><i class="fa" data-ng-class="isPlaybookExecuted ? 'fa-spin fa-spinner' : 'icon icon-publish'"></i></span>&nbsp;&nbsp;</span>{{viewWidgetVars.VIEW_APPLY_BTN_LABEL}}</button>
+                <button type="button" class="btn btn-sm btn-primary" data-ng-click="triggerPlaybook()"
+                    data-ng-disabled="(isPlaybookExecuted || isTemplateSelected===false)"
+                    id="submit-export-template-btn"><span class="fa"
+                        data-ng-class="isPlaybookExecuted ? 'fa-spin fa-spinner' : 'icon icon-publish'"></span><span>&nbsp;&nbsp;</span>{{viewWidgetVars.VIEW_APPLY_BTN_LABEL}}</button>
             </div>
         </div>
     </div>
