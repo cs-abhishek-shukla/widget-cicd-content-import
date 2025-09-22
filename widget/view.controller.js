@@ -18,6 +18,7 @@ Copyright end */
     $scope.parent_wf_id = '';
     var subscription;
     const playbookIRI = '24963415-4057-4fd5-bbe5-bf7d6bfa059d';
+    const updatePlaybookIRI = 'de8a2184-a9f0-4530-ace7-132247f2be31';
 
     $scope.$on('websocket:reconnect', function () {
       initWebsocket();
@@ -52,12 +53,6 @@ Copyright end */
       var endpoint = API.WORKFLOW + 'api/workflows/' + $scope.parent_wf_id + '/';
       $http.get(endpoint).then(function (response) {
         if (response.data.status === 'finished') {
-          if (subscription) {
-            websocketService.unsubscribe(subscription);
-          }
-          $scope.selectedRepository = null;
-          $scope.isTemplateSelected = false;
-          $scope.isPlaybookExecuted = false;
           if (!CommonUtils.isUndefined(response.data.result.data) && response.data.result.data.status == "Reviewing") {
             _openWizard(response.data.result.data.uuid);
           }
@@ -66,6 +61,9 @@ Copyright end */
               toaster.warning({
                 body: "Reset the \"Apply Latest Content\" task and try again."
               });
+              $scope.selectedRepository = null;
+              $scope.isTemplateSelected = false;
+              $scope.isPlaybookExecuted = false;
               $scope.isToaster = true;
               websocketService.unsubscribe(subscription);
             }
@@ -136,6 +134,28 @@ Copyright end */
       });
       modal.result.finally(function () {
         $scope.$broadcast('csGrid:refresh', 500);
+        var endpoint = API.BASE + 'import_jobs/' + jobUuid + '?__selectFields=errorMessage,status,progressPercent,file,currentlyImporting,options';
+        $http.get(endpoint).then(function (response) {
+          if (response.data.currentlyImporting !== 'completed') {
+            toaster.warning({
+              body: "Failed to complete the \"Review and Apply Latest Content\" operation."
+            });
+          }
+          var queryPayload = {
+            "request": {
+              "selectedRepository": $scope.selectedRepository,
+              "record": (FormEntityService.get()).originalData,
+              "importStatus": response.data.currentlyImporting
+            }
+          };
+          var queryUrl = API.MANUAL_TRIGGER + updatePlaybookIRI;
+          $http.post(queryUrl, queryPayload).then(function (response) {
+            $scope.pullLatestContentPlaybookTaskID = response.data.task_id;
+          });
+          $scope.selectedRepository = null;
+          $scope.isTemplateSelected = false;
+          $scope.isPlaybookExecuted = false;
+        });
       });
     }
 
