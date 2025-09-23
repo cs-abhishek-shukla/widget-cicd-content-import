@@ -57,7 +57,7 @@ Copyright end */
             _openWizard(response.data.result.data.uuid);
           }
           else {
-            if (!$scope.isToaster) {
+            if (!$scope.isToaster && !CommonUtils.isUndefined(response.data.result.data)) {
               toaster.warning({
                 body: "Reset the \"Apply Latest Content\" task and try again."
               });
