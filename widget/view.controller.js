@@ -56,6 +56,16 @@ Copyright end */
           if (!CommonUtils.isUndefined(response.data.result.data) && response.data.result.data.status == "Reviewing") {
             _openWizard(response.data.result.data.uuid);
           }
+          else if (!CommonUtils.isUndefined(response.data.result.data) && response.data.result.data.status == "Connector or User Mapping Missing") {
+            toaster.warning({
+              body: "The logged-in user does not have a configured source control connector or is not mapped to a source control username."
+            });
+            $scope.selectedRepository = null;
+            $scope.isTemplateSelected = false;
+            $scope.isPlaybookExecuted = false;
+            $scope.isToaster = true;
+            websocketService.unsubscribe(subscription);
+          }
           else {
             if (!$scope.isToaster && !CommonUtils.isUndefined(response.data.result.data)) {
               toaster.warning({
