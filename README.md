@@ -4,7 +4,7 @@
 
 - **Publisher**: Fortinet
 
-- **Compatibility**: 7.6.4 and later
+- **Compatibility**: 7.4.3 and later
 
 - **Applicable**: Continuous Delivery solution pack
 
